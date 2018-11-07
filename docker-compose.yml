@@ -1,0 +1,36 @@
+version: '3'
+services:
+  api:
+    build: .
+    container_name: sour
+#    volumes:
+#      - ./app/src/:/usr/app/
+#    working_dir: /usr/app/
+#    command:
+#      - npm install && npm run build && npm start
+    ports:
+      - '3000:3000'
+    env_file:
+     - .env
+    environment:
+     - NODE_ENV=${NODE_ENV}
+     - MYSQL_DATABASE=${MYSQL_DATABASE}
+     - MYSQL_USER=${MYSQL_USER}
+     - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+     - LABEL_PRINTER_URL=${LABEL_PRINTER_URL}
+    depends_on:
+      - database
+  database:
+    image: mysql:5.7
+    container_name: orange
+    volumes:
+      - ./data/dbcreation:/tmp/dbcreation
+      - ./data/import.sh:/tmp/import.sh
+    ports:
+      - "13306:3306"
+      - "33060:33060"
+    environment:
+     - MYSQL_DATABASE=${MYSQL_DATABASE}
+     - MYSQL_USER=${MYSQL_USER}
+     - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}

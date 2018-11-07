@@ -1,0 +1,16 @@
+database:
+  image: mysql:5.7
+  container_name: database.dev
+  volumes:
+    - ./dbcreation:/tmp/dbcreation
+    - ./import.sh:/tmp/import.sh
+  ports:
+    - "13306:3306"
+    - "33060:33060"
+  environment:
+    MYSQL_DATABASE: "meals"
+    MYSQL_USER: "test"
+    MYSQL_PASSWORD: "test"
+    MYSQL_ROOT_PASSWORD: "test"
+    MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    

@@ -1,0 +1,39 @@
+{
+    "location": 1,
+    "entrees": [
+        {
+            "entreeID": 1,
+            "notes": "Don't mess this up"
+        },
+        {
+            "entreeID": 2,
+            "notes": "Please Don't mess this up"
+        }
+    ],
+    "entreeSides": [
+        {
+            "entreeID": 1,
+            "sidesID": 6
+        },
+        {
+            "entreeID": 2,
+            "sidesID": 4
+        }
+    ],
+    "sides": [
+        {
+            "sidesID": 5
+        },
+        {
+            "sidesID": 6
+        }
+    ],
+    "drinks": [
+        {
+            "drinkID": 2
+        },
+        {
+            "drinkID": 6
+        }
+    ]
+}
